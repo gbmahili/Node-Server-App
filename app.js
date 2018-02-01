@@ -18,7 +18,7 @@ var fs = require("fs");
 function loadPages(request, response) {
     var path = request.url;
     fs.readFile(`${__dirname}/${path}`,(err, data) => {
-        if (err) throw err.message;
+        if (err) throw err.code;
         response.writeHead(200, { "Content-Type": "text/html" });
         response.end(data);
     });
